@@ -1,13 +1,17 @@
-import GetUserInfo from '././Handlers/VKWebAppGetUserInfo';
+import GetUserInfo from './Handlers/VKWebAppGetUserInfo';
+import Init from './Handlers/VKWebAppInit';
+import GetAuthToken from './Handlers/VKWebAppGetAuthToken';
+import CallAPIMethod from './Handlers/VKWebAppCallAPIMethod';
+import GetGeodata from './Handlers/VKWebAppGetGeodata';
 
 export default {
-	'VKWebAppInit': {},
+	'VKWebAppInit': Init(),
 	// Data
-	'VKWebAppGetAuthToken': {},
+	'VKWebAppGetAuthToken': GetAuthToken(),
 	// Data
-	'VKWebAppCallAPIMethod': {},
+	'VKWebAppCallAPIMethod': CallAPIMethod(),
 	// Data
-	'VKWebAppGetGeodata': {},
+	'VKWebAppGetGeodata': GetGeodata(),
 	// Datab
 	'VKWebAppGetUserInfo': GetUserInfo(),
 	// Data

@@ -1,4 +1,4 @@
-export const userData =  {
+export const userData = {
 	type: 'VKWebAppGetUserInfoResult',
 	data: {
 		photo_100: 'https://pp.userapi.com/c841034/v841034569/3b8c1/pt3sOw_qhfg.jpg',
