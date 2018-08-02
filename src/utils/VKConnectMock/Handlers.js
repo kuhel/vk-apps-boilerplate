@@ -3,6 +3,9 @@ import Init from './Handlers/VKWebAppInit';
 import GetAuthToken from './Handlers/VKWebAppGetAuthToken';
 import CallAPIMethod from './Handlers/VKWebAppCallAPIMethod';
 import GetGeodata from './Handlers/VKWebAppGetGeodata';
+import GetPhoneNumber from './Handlers/VKWebAppGetPhoneNumber';
+import GetClientVersion from './Handlers/VKWebAppGetClientVersion';
+import GetEmail from './Handlers/VKWebAppGetEmail';
 
 export default {
 	'VKWebAppInit': Init(),
@@ -15,9 +18,11 @@ export default {
 	// Datab
 	'VKWebAppGetUserInfo': GetUserInfo(),
 	// Data
-	'VKWebAppGetPhoneNumber': {},
+	'VKWebAppGetPhoneNumber': GetPhoneNumber(),
 	// Data
-	'VKWebAppGetClientVersion': {},
+	'VKWebAppGetClientVersion': GetClientVersion(),
+	// Data
+	'VKWebAppGetEmail': GetEmail(),
 	// UI
 	'VKWebAppOpenPayForm': {},
 	// UI
@@ -32,8 +37,6 @@ export default {
 	'VKWebAppSetTitle': {},
 	// UI
 	'VKWebAppShowWallPostBox': {},
-	// Data
-	'VKWebAppGetEmail': {},
 	// ???
 	'VKWebAppSetLocation': {},
 	// UI
