@@ -1,6 +1,5 @@
 import React from 'react';
-// import * as VKConnect from '@vkontakte/vkui-connect';
-import VKConnect from  './utils/VKConnectMock/Observer';
+import * as VKConnect from '@vkontakte/vkui-connect';
 import { ConfigProvider, View } from '@vkontakte/vkui';
 import { isWebView } from '@vkontakte/vkui/src/lib/webview';
 import '@vkontakte/vkui/dist/vkui.css';
