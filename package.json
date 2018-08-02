@@ -12,6 +12,8 @@
 		"create-vk-app": "./bin/create-vk-app.js"
 	},
 	"scripts": {
+		"start": "PORT=10888 react-scripts start",
+		"build": "PUBLIC_URL=https://kuhel.github.io/vk-apps-boilerplate/ react-scripts build",
 		"create": "node ./bin/create-vk-app.js"
 	},
 	"keywords": [],
@@ -25,6 +27,7 @@
 		"prop-types": "^15.6.2",
 		"react": "^16.4.1",
 		"react-dom": "^16.4.1",
+		"react-hot-loader": "^4.3.4",
 		"react-router-dom": "^4.3.1"
 	}
 }
