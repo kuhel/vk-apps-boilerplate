@@ -8,7 +8,7 @@ const { exec } = require('child_process');
 const packageJson = require('../package.json');
 
 const scripts = `"start": "PORT=10888 react-scripts start",
-"build": "PUBLIC_URL=https://kuhel.github.io/vk-apps-boilerplate/ react-scripts build"`;
+"build": "react-scripts build"`;
 
 // Parse and prepare string to install dependencies
 const getDeps = deps =>
@@ -19,7 +19,8 @@ const getDeps = deps =>
 		.replace(/^/g, '')
 		// exclude the plugin only used in this file, nor relevant to the boilerplate
 		.replace(/fs-extra[^\s]+/g, '')
-		.replace(/gh-pages[^\s]+/g, '');
+		.replace(/gh-pages[^\s]+/g, '')
+		.replace(/@vkontakte\/vkui[^\s]+/g, '@vkontakte/vkui');
 
 console.log('🎬  Creating project...');
 
@@ -36,7 +37,8 @@ exec(
 			if (err) throw err;
 			const data = file
 				.toString()
-				.replace('"test": "echo \\"Error: no test specified\\" && exit 1"', scripts);
+				.replace('"test": "echo \\"Error: no test specified\\" && exit 1"', scripts)
+				.replace('"license": "ISC"', '"license": "MIT"');
 			fs.writeFile(packageJSON, data, (error) => {
 				if (error) throw error;
 			});
