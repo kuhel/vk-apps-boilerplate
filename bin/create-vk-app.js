@@ -71,7 +71,6 @@ exec(
 		const devDeps = packageJson.devDependencies ? getDeps(packageJson.devDependencies) : '';
 		const deps = packageJson.dependencies ? getDeps(packageJson.dependencies) : '';
 		exec(
-			// `cd ${process.argv[2]} && npm i -D ${devDeps} && npm i -S ${deps}`,
 			`cd ${process.argv[2]}${devDeps ? ` && yarn add ${devDeps} --dev` : ''}${deps ? ` && yarn add ${deps}` : ''}`,
 			(npmErr, npmStdout) => {
 				if (npmErr) {
@@ -87,13 +86,14 @@ exec(
 
 				fs.copy(path.join(__dirname, '../src'), `${process.argv[2]}/src`)
 					.then(() => {
-						if (process.argv[3] !== undefined) {
-							const configFile = `${process.argv[2]}/src/config.js`;
-							const data = `export default {\n\tappId: ${process.argv[3]},\n};\n`;
-							fs.writeFile(configFile, data, (err) => {
-								if (err) throw err;
-							});
-						}
+						// TODO Config feature will be enabled later
+						// if (process.argv[3] !== undefined) {
+						// 	const configFile = `${process.argv[2]}/src/config.js`;
+						// 	const data = `export default {\n\tappId: ${process.argv[3]},\n};\n`;
+						// 	fs.writeFile(configFile, data, (err) => {
+						// 		if (err) throw err;
+						// 	});
+						// }
 						console.log(`✌️  VK App Boilerplate is ready to start in ${process.argv[2]} folder. \n🧐  Check README.MD for brief instructrions.\n💻  Happy Coding!`)
 					})
 					.catch(err => console.error(err));
