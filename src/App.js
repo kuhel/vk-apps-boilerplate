@@ -26,6 +26,7 @@ class App extends React.Component {
 				},
 			},
 			fetchedUser: {},
+			access_token: '255f511f85047d79cf5aea962e4c5ade60fc89475874ab1efe4fd7552f44245c111850d6bedd6894027e5'
 		};
 	}
 
@@ -39,9 +40,24 @@ class App extends React.Component {
 						...e.detail.data 
 					},
 				});
+			} else if (e.detail.type === 'VKWebAppAccessTokenReceived') {
+				this.setState({
+					access_token: {
+						...e.detail.data.access_token
+					},
+				});
 			}
 		});
+		VKConnect.send('VKWebAppGetAuthToken', {});
 		VKConnect.send('VKWebAppGetUserInfo', {});
+		VKConnect.send('VKWebAppCallAPIMethod', {
+			method: 'users.get',
+			params: {
+				user_ids: '1,2,6492',
+				v: '5.80',
+				access_token: this.state.access_token
+			}
+		});
 	}
 
 	render() {
