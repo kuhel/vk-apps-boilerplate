@@ -1,5 +1,6 @@
 import React from 'react';
-import * as VKConnect from '@vkontakte/vkui-connect';
+import * as VKConnect from '@vkontakte/vkui-connect/desktop';
+// import * as VKConnect from './vkui-connect.js';
 import { ConfigProvider, View } from '@vkontakte/vkui';
 import { isWebView } from '@vkontakte/vkui/src/lib/webview';
 import '@vkontakte/vkui/dist/vkui.css';
@@ -29,6 +30,10 @@ class App extends React.Component {
 				});
 			}
 		});
+		// It is necessary to call VKWebAppInit to launch the app
+		VKConnect.send('VKWebAppInit', {});
+		VKConnect.send('VKWebAppGetClientVersion');
+		VKConnect.send('VKWebAppOpenQR');
 		VKConnect.send('VKWebAppGetUserInfo', {});
 	}
 

@@ -18,7 +18,7 @@ const Home = props => (
 
 		</Group>}
 
-		<Group title="Navigation Example">
+		<Group title="Navigation Example v2">
 
 			<Div>
 				<Button
@@ -26,7 +26,7 @@ const Home = props => (
 					level="2"
 					onClick={() => props.clickHandler()}
 				>
-					Show me the Persik, please
+					Persik, please
 				</Button>
 			</Div>
 		</Group>
